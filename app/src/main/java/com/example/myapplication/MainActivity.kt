@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.homeFragment,
                 R.id.dashboardFragment,
-                R.id.notificationFragment
+                R.id.notificationFragment,
+                R.id.infoFragment
             )
         )
 

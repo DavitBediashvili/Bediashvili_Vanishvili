@@ -36,4 +36,12 @@
         android:name="com.example.myapplication.Fragments.NotificationFragment"
         tools:layout="@layout/fragment_notification"
         android:label="NotificationFragment" />
+
+
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.myapplication.Fragments.informationFragment"
+        android:label="infoFragment"
+        tools:layout="@layout/fragment_info"/>
 </navigation>
