@@ -1,5 +1,6 @@
 package com.example.exam.Fragments
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import androidx.fragment.app.Fragment
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.myapplication.R
+import com.example.myapplication.ResetPasswordDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -73,21 +75,8 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         }
         passwordReset.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                if (view is TextView) {
-                    var mailinput = editTextEmailAddress.text.toString()
-                    Firebase.auth.sendPasswordResetEmail(mailinput)
-                        .addOnCompleteListener() { task ->
-                            if (task.isSuccessful) {
-                                Log.d(TAG, "Email Sent")
-                                Toast.makeText(
-                                    getActivity(),
-                                    "Instructions for resetting password were sent successfully",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            } else
-                                Toast.makeText(getActivity(), "Problem Occurred", Toast.LENGTH_SHORT).show()
-                        }
-                }
+                ResetPasswordDialog(requireContext()).show()
+
             }
         })
     }

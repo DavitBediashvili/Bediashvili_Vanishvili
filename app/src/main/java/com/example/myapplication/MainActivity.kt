@@ -12,17 +12,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        val controller = findNavController(R.id.nav_host_fragment)
-
-        val appBarConfig = AppBarConfiguration(
-            setOf(
-                R.id.authscreeFragment,
-                R.id.registrationscreenFragment
-            )
-        )
-
-        setupActionBarWithNavController(controller, appBarConfig)
+//
+//
+//        val controller = findNavController(R.id.nav_host_fragment)
+//
+//        val appBarConfig = AppBarConfiguration(
+//            setOf(
+//            )
+//        )
+//
+//        setupActionBarWithNavController(controller, appBarConfig)
     }
 }
