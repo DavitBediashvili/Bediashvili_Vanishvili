@@ -39,7 +39,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
-                            val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToAuthscreeFragment()
+                            val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
                             controller.navigate(action)
                         }
                         else

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authscreeFragment">
+    app:startDestination="@id/firstpageFragment">
 
     <fragment
         android:id="@+id/registrationscreenFragment"
@@ -11,17 +11,31 @@
         tools:layout="@layout/fragment_registrationscreen"
         android:label="RegistrationScreenFragment">
         <action
-            android:id="@+id/action_registrationscreenFragment_to_authscreeFragment"
-            app:destination="@id/authscreeFragment" />
+            android:id="@+id/action_registrationscreenFragment_to_firstpageFragment"
+            app:destination="@id/firstpageFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/authscreeFragment"
         android:name="com.example.exam.Fragments.AuthScreenFragment"
         tools:layout="@layout/fragment_authscreen"
-        android:label="AuthScreenFragment" >
+        android:label="AuthScreenFragment">
         <action
-            android:id="@+id/action_homeFragment_to_registrationscreenFragment"
+            android:id="@+id/action_authscreeFragment_to_firstpageFragment"
+            app:destination="@id/firstpageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/firstpageFragment"
+        android:name="com.example.myapplication.FragmentsFirst.FirstPageFragment"
+        tools:layout="@layout/fragment_firstpage"
+        android:label="FirstPageFragment">
+
+        <action
+            android:id="@+id/action_firstpageFragment_to_authscreeFragment"
+            app:destination="@id/authscreeFragment" />
+        <action
+            android:id="@+id/action_firstpageFragment_to_registrationscreenFragment"
             app:destination="@id/registrationscreenFragment" />
     </fragment>
 

@@ -9,14 +9,16 @@
 
     <EditText
         android:id="@+id/editTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
+        android:background="#50B3A7A7"
         android:hint="Mail"
+        android:textSize="22sp"
         android:inputType="textEmailAddress"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="#99FFFFFF"
+        android:textColorHint="#99FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +26,16 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
         android:layout_marginTop="28dp"
         android:ems="10"
+        android:background="#50B3A7A7"
         android:hint="Password"
+        android:textSize="22sp"
         android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="#99FFFFFF"
+        android:textColorHint="#99FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,51 +46,39 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:backgroundTint="#002BFF"
-        android:text="Authorization"
+        android:text="Log In"
+        android:background="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
-    <Button
-        android:id="@+id/registrationPageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#002BFF"
-        android:text="Create Free Account"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorizationButton" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="306dp"
-        android:layout_height="104dp"
-        android:text="Welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instagram"
+        android:fontFamily="@font/motionpicture"
         android:textColor="@color/white"
-        android:textSize="70sp"
-        android:textStyle="bold"
+        android:textSize="90sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintVertical_bias="0.545" />
 
     <TextView
         android:id="@+id/passwordReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="?attr/selectableItemBackground"
         android:text="Forgot Password?"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        android:background="?attr/selectableItemBackground"/>
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

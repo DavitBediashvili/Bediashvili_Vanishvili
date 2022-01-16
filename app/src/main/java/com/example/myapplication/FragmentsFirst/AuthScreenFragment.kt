@@ -22,7 +22,6 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var editTextEmailAddress: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var authorizationButton: Button
-    private lateinit var registrationPageButton: Button
     private lateinit var passwordReset: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,18 +30,8 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         editTextEmailAddress = view.findViewById(R.id.editTextEmailAddress)
         editTextPassword = view.findViewById(R.id.editTextPassword)
         authorizationButton = view.findViewById(R.id.authorizationButton)
-        registrationPageButton = view.findViewById(R.id.registrationPageButton)
         passwordReset = view.findViewById(R.id.passwordReset)
 
-        val controller = Navigation.findNavController(view)
-
-        registrationPageButton.setOnClickListener {
-
-            val action =
-                AuthScreenFragmentDirections.actionHomeFragmentToRegistrationscreenFragment()
-
-            controller.navigate(action)
-        }
 
         authorizationButton.setOnClickListener {
             var mailInput = editTextEmailAddress.text.toString()
