@@ -2,6 +2,7 @@ package com.example.exam.Fragments
 
 import android.app.AlertDialog
 import android.content.ContentValues.TAG
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.example.myapplication.FragmentsFirst.FirstPageFragmentDirections
+import com.example.myapplication.MainPartActivity
 import com.example.myapplication.R
 import com.example.myapplication.ResetPasswordDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +26,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var editTextPassword: EditText
     private lateinit var authorizationButton: Button
     private lateinit var passwordReset: TextView
+    private lateinit var fromAuthScreenToRegScreen: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +35,17 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         editTextPassword = view.findViewById(R.id.editTextPassword)
         authorizationButton = view.findViewById(R.id.authorizationButton)
         passwordReset = view.findViewById(R.id.passwordReset)
+        fromAuthScreenToRegScreen = view.findViewById(R.id.fromAuthScreenToRegScreen)
 
+        val controller = Navigation.findNavController(view)
+
+        fromAuthScreenToRegScreen.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                val action3 = AuthScreenFragmentDirections.actionAuthscreeFragmentToRegistrationscreenFragment()
+                controller.navigate(action3)
+
+            }
+        })
 
         authorizationButton.setOnClickListener {
             var mailInput = editTextEmailAddress.text.toString()
@@ -49,11 +63,9 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
                     .signInWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(
-                                getActivity(),
-                                "Authorization Complete",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(activity, MainPartActivity::class.java)
+                            startActivity(intent)
                         } else
                             Toast.makeText(
                                 getActivity(),
@@ -68,5 +80,6 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
 
             }
         })
+
     }
 }

@@ -35,8 +35,8 @@ class FirstPageFragment: Fragment(R.layout.fragment_firstpage){
 
         transferToAuthScreenButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
-                val action1 = FirstPageFragmentDirections.actionFirstpageFragmentToAuthscreeFragment()
-                controller.navigate(action1)
+                val action2 = FirstPageFragmentDirections.actionFirstpageFragmentToAuthscreeFragment()
+                controller.navigate(action2)
 
             }
         })

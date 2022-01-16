@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_authscreeFragment_to_firstpageFragment"
             app:destination="@id/firstpageFragment" />
+        <action
+            android:id="@+id/action_authscreeFragment_to_registrationscreenFragment"
+            app:destination="@id/registrationscreenFragment" />
     </fragment>
 
     <fragment
