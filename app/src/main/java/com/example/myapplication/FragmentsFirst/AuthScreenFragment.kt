@@ -13,7 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.myapplication.FragmentsFirst.FirstPageFragmentDirections
-import com.example.myapplication.MainPartActivity
+import com.example.myapplication.MainActivityTwo
 import com.example.myapplication.R
 import com.example.myapplication.ResetPasswordDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -53,18 +53,15 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
 
             if (mailInput.isEmpty() || mailInput.length < 8 || !mailInput.contains("@")) {
                 editTextEmailAddress.error = "Please write correct mail"
-            } else if (passwordInput.isEmpty() || (passwordInput.length <= 9) || !(passwordInput.matches(
-                    ".*[0-9].*".toRegex()
-                )) || !(passwordInput.matches(".*[a-z].*".toRegex()))
-            ) {
-                editTextPassword.error = "Please write correct password"
+            } else if (passwordInput.isEmpty() || (passwordInput.length <= 9) || !(passwordInput.matches(".*[0-9].*".toRegex())) || !(passwordInput.matches(".*[a-z].*".toRegex()))) {
+                editTextPassword.error = "Password should contain more than 8 symbols and numbers"
             } else
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(activity, MainPartActivity::class.java)
+                            val intent = Intent(activity, MainActivityTwo::class.java)
                             startActivity(intent)
                         } else
                             Toast.makeText(

@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_firstpageFragment_to_registrationscreenFragment"
             app:destination="@id/registrationscreenFragment" />
+        <action
+            android:id="@+id/action_firstpageFragment_self"
+            app:destination="@id/firstpageFragment" />
     </fragment>
 
 </navigation>
