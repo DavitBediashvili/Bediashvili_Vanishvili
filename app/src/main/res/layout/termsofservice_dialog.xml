@@ -6,30 +6,28 @@
     android:background="@drawable/main_background_dialog"
     android:clipToOutline="true">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password Reset"
+        android:text="Terms Of Service"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold">
     </TextView>
 
-    <EditText
-        android:id="@+id/editTextEmailAddressDialog"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Input Your Mail"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/white">
+        android:textAlignment="center"
+        android:text="Don't post stupid photos and rate this app with 5 stars"
+        android:textColor="@color/white"
+        android:textSize="18sp">
+    </TextView>
 
-    </EditText>
 
     <Button
-        android:id="@+id/submitButtonRP"
+        android:id="@+id/submitButtonTOS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -40,6 +38,5 @@
         android:backgroundTint="#002BFF">
 
     </Button>
-
 
 </LinearLayout>

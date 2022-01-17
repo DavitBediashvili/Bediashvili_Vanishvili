@@ -10,58 +10,100 @@
         android:id="@+id/registrationEmailAddress"
         android:layout_width="290dp"
         android:layout_height="40dp"
-        android:layout_marginTop="320dp"
-        android:ems="10"
+        android:layout_marginTop="308dp"
         android:background="#50B3A7A7"
+        android:ems="10"
         android:hint="Mail"
-        android:textSize="22sp"
         android:inputType="textEmailAddress"
         android:textColor="#99FFFFFF"
         android:textColorHint="#99FFFFFF"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/registrationPassword"
         android:layout_width="290dp"
         android:layout_height="40dp"
-        android:ems="10"
+        android:layout_marginTop="20dp"
         android:background="#50B3A7A7"
+        android:ems="10"
         android:hint="Password"
-        android:textSize="22sp"
+        android:inputType="textPassword"
         android:textColor="#99FFFFFF"
         android:textColorHint="#99FFFFFF"
-        android:layout_marginTop="20dp"
-        android:inputType="textPassword"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrationEmailAddress"/>
+        app:layout_constraintTop_toBottomOf="@+id/registrationEmailAddress" />
 
 
     <Button
         android:id="@+id/registrationButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="registration"
+        android:layout_marginTop="104dp"
         android:background="@drawable/button_background"
-        android:layout_margin="30dp"
+        android:text="registration"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/registrationPasswordRepeat" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instagram"
-        android:textColor="@color/white"
-        android:textSize="90sp"
         android:fontFamily="@font/motionpicture"
+        android:text="Bilde"
+        android:textColor="@color/white"
+        android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/registrationEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/registrationPasswordRepeat"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="#50B3A7A7"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:textColor="#99FFFFFF"
+        android:textColorHint="#99FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrationPassword" />
+
+    <CheckBox
+        android:id="@+id/termsOfServiceCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:text="I agree all statements in"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrationPasswordRepeat" />
+
+    <TextView
+        android:id="@+id/termsOfService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="27dp"
+        android:text="Terms of service"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@+id/termsOfServiceCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/registrationPasswordRepeat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

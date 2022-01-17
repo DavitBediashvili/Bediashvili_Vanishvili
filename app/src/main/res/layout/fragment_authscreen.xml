@@ -57,15 +57,16 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Instagram"
         android:fontFamily="@font/motionpicture"
+        android:text="Bilde"
         android:textColor="@color/white"
-        android:textSize="90sp"
+        android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.548" />
 
     <TextView
         android:id="@+id/passwordReset"

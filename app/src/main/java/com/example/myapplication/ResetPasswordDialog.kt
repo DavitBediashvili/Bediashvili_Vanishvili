@@ -13,7 +13,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class ResetPasswordDialog(context: Context): Dialog(context) {
-    private lateinit var submitButton: Button
+    private lateinit var submitButtonRP: Button
     private lateinit var editTextEmailAddressDialog: EditText
 
     init {
@@ -23,10 +23,10 @@ class ResetPasswordDialog(context: Context): Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resetpassword_dialog)
-        submitButton = findViewById(R.id.submitButton)
+        submitButtonRP = findViewById(R.id.submitButtonRP)
         editTextEmailAddressDialog = findViewById(R.id.editTextEmailAddressDialog)
 
-        submitButton.setOnClickListener{
+        submitButtonRP.setOnClickListener{
                 var mailinput = editTextEmailAddressDialog.text.toString()
                 Firebase.auth.sendPasswordResetEmail(mailinput)
                     .addOnCompleteListener() { task ->
