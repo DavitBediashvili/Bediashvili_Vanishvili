@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/1/AndroidStudioProjects/Bediashvili_Vanishvilii/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/1/AndroidStudioProjects/Bediashvili_Vanishvilii/app/src/main/res/layout/fragment_registrationscreen.xml" value="0.2" />
+        <entry key="..\:/Users/1/AndroidStudioProjects/Bediashvili_Vanishvilii/app/src/main/res/layout/fragment_search.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/1/AndroidStudioProjects/Bediashvili_Vanishvilii/app/src/main/res/layout/user_info.xml" value="0.25" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/drawable/button_black_background.xml" value="0.2866666666666667" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/drawable/buttons_background.xml" value="0.2866666666666667" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/activity_account_settings.xml" value="0.275" />

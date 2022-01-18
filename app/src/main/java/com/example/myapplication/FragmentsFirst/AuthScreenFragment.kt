@@ -24,6 +24,7 @@ import com.google.firebase.ktx.Firebase
 class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var editTextEmailAddress: EditText
     private lateinit var editTextPassword: EditText
+    private lateinit var username: EditText
     private lateinit var authorizationButton: Button
     private lateinit var passwordReset: TextView
     private lateinit var fromAuthScreenToRegScreen: TextView
@@ -35,6 +36,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         editTextPassword = view.findViewById(R.id.editTextPassword)
         authorizationButton = view.findViewById(R.id.authorizationButton)
         passwordReset = view.findViewById(R.id.passwordReset)
+        username = view.findViewById(R.id.username)
         fromAuthScreenToRegScreen = view.findViewById(R.id.fromAuthScreenToRegScreen)
 
         val controller = Navigation.findNavController(view)
@@ -50,6 +52,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         authorizationButton.setOnClickListener {
             var mailInput = editTextEmailAddress.text.toString()
             var passwordInput = editTextPassword.text.toString()
+            var usernameRead = username.text.toString().toLowerCase()
 
             if (mailInput.isEmpty() || mailInput.length < 8 || !mailInput.contains("@")) {
                 editTextEmailAddress.error = "Please write correct mail"

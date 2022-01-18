@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background">
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:background="#50B3A7A7"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:textColor="#99FFFFFF"
+        android:textColorHint="#99FFFFFF"
+        android:textSize="22sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/registrationEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
     <EditText
         android:id="@+id/registrationEmailAddress"
