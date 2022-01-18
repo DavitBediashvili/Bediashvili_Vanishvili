@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     tools:context=".FragmentsSecond.HomeFragment">
 
 
@@ -15,31 +16,30 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/white"
-
+            android:background="#2B42DA"
             android:id="@+id/home_toolbar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <TextView
                     android:layout_width="125dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/instagram"
                     android:layout_alignParentLeft="true"
-
-                    />
+                    android:fontFamily="@font/motionpicture"
+                    android:text="Bilde"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"/>
 
                 <ImageView
                     android:layout_width="125dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/send_icon"
                     android:layout_alignParentRight="true"
+
+
                     android:layout_centerInParent="true"
-
-
-                    />
+                    android:src="@drawable/send_icons" />
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>

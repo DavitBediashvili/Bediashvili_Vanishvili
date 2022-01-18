@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     tools:context=".AccountSettings">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -67,16 +68,16 @@
     </de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
+        android:id="@+id/change_image_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_image"
-        android:text="Change Profile Image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:textStyle="bold"
+        android:text="Change Profile Image"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        android:id="@+id/change_image_text"
-        android:textColor="@color/colorPrimary"/>
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/fullname"

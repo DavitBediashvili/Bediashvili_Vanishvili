@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/drawable/button_black_background.xml" value="0.2866666666666667" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/drawable/buttons_background.xml" value="0.2866666666666667" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/activity_account_settings.xml" value="0.275" />
-        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/activity_main_two.xml" value="0.2601851851851852" />
-        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_home.xml" value="0.275" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/activity_main_two.xml" value="0.264" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_authscreen.xml" value="0.275" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_notifications.xml" value="0.275" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_profile.xml" value="0.275" />
+        <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_registrationscreen.xml" value="0.275" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/layout/fragment_search.xml" value="0.275" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/Bediashvili_Vanishvili/app/src/main/res/menu/bottom_nav_menu.xml" value="0.275" />
         <entry key="..\:/Users/dbedi/AndroidStudioProjects/ExamAPK/app/src/main/res/drawable/button_background.xml" value="0.2351851851851852" />
