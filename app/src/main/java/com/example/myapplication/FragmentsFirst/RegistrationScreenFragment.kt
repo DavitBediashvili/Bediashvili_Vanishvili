@@ -9,20 +9,28 @@ import com.example.myapplication.R
 import com.example.myapplication.ResetPasswordDialog
 import com.example.myapplication.TermsOfServiceDialog
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_registrationscreen.*
 
 class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen) {
     private lateinit var registrationEmailAddress: EditText
     private lateinit var registrationPassword: EditText
     private lateinit var registrationButton: Button
+    private lateinit var username: EditText
     private lateinit var registrationPasswordRepeat: EditText
     private lateinit var termsOfServiceCheckBox: CheckBox
     private lateinit var termsOfService: TextView
+    private val auth = FirebaseAuth.getInstance()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         registrationEmailAddress = view.findViewById(R.id.registrationEmailAddress)
         registrationPassword = view.findViewById(R.id.registrationPassword)
         registrationButton = view.findViewById(R.id.registrationButton)
+        username = view.findViewById(R.id.username)
         registrationPasswordRepeat = view.findViewById(R.id.registrationPasswordRepeat)
         termsOfServiceCheckBox = view.findViewById(R.id.termsOfServiceCheckBox)
         termsOfService = view.findViewById(R.id.termsOfService)
@@ -33,6 +41,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
             var mailInput = registrationEmailAddress.text.toString()
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
+            var usernameRead = username.text.toString().toLowerCase()
+
 
             if (mailInput.isEmpty() || mailInput.length < 8 || !mailInput.contains("@")) {
                 registrationEmailAddress.error = "Please write correct mail"
@@ -51,6 +61,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .createUserWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
+                            saveUserInfo(usernameRead)
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
                             val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
                             controller.navigate(action)
@@ -66,5 +77,23 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
             }
         })
+    }
+
+    private fun saveUserInfo(username: String) {
+        val currentUser =FirebaseAuth.getInstance().currentUser!!.uid
+        val users: DatabaseReference  = FirebaseDatabase.getInstance().getReference().child("Username")
+        val usermap = HashMap<String , Any>()
+        usermap["username"] = currentUser
+        users.child(currentUser).setValue(usermap)
+            .addOnCompleteListener { task->
+                if (task.isSuccessful){
+                    Toast.makeText(getActivity(), "Account has been created succesfully", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
     }
 }
