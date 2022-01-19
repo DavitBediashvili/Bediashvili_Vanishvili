@@ -13,6 +13,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_registrationscreen.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen) {
     private lateinit var registrationEmailAddress: EditText
@@ -27,21 +29,48 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        registrationEmailAddress = view.findViewById(R.id.registrationEmailAddress)
-        registrationPassword = view.findViewById(R.id.registrationPassword)
-        registrationButton = view.findViewById(R.id.registrationButton)
-        username = view.findViewById(R.id.username)
-        registrationPasswordRepeat = view.findViewById(R.id.registrationPasswordRepeat)
-        termsOfServiceCheckBox = view.findViewById(R.id.termsOfServiceCheckBox)
-        termsOfService = view.findViewById(R.id.termsOfService)
+        init()
 
-        val controller = Navigation.findNavController(view)
+        registration()
 
+
+        termsOfService.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                TermsOfServiceDialog(requireContext()).show()
+
+            }
+        })
+    }
+
+    private fun saveUserInfo(usernameRead: String, mailInput: String) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
+
+        val userMap = HashMap<String, Any>()
+        userMap["uid"] = currentUserID
+        userMap["usernameRead"] = usernameRead.toLowerCase()
+        userMap["mailInput"] = mailInput.toLowerCase()
+        userMap["image"] = "https://firebasestorage.googleapis.com/v0/b/theapk-4cf05.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=43f0d7d5-0131-4703-9722-c8d83e991b49"
+
+        usersRef.child(currentUserID).setValue(userMap)
+            .addOnCompleteListener{task ->
+                if (task.isSuccessful){
+                    Toast.makeText(getActivity(), "Big Success ", Toast.LENGTH_SHORT)
+                }
+                else{
+                    Toast.makeText(getActivity(), "Fail ", Toast.LENGTH_SHORT)
+                }
+
+            }
+    }
+    private fun registration(){
         registrationButton.setOnClickListener {
             var mailInput = registrationEmailAddress.text.toString()
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
             var usernameRead = username.text.toString().toLowerCase()
+
+            val controller = Navigation.findNavController(requireView())
 
 
             if (mailInput.isEmpty() || mailInput.length < 8 || !mailInput.contains("@")) {
@@ -61,7 +90,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .createUserWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
-                            saveUserInfo(usernameRead)
+                            saveUserInfo(usernameRead, mailInput)
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
                             val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
                             controller.navigate(action)
@@ -70,30 +99,16 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                             Toast.makeText(getActivity(), "During Registration Problem Occurred ", Toast.LENGTH_SHORT).show()
                     }
         }
-
-        termsOfService.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                TermsOfServiceDialog(requireContext()).show()
-
-            }
-        })
     }
 
-    private fun saveUserInfo(username: String) {
-        val currentUser =FirebaseAuth.getInstance().currentUser!!.uid
-        val users: DatabaseReference  = FirebaseDatabase.getInstance().getReference().child("Username")
-        val usermap = HashMap<String , Any>()
-        usermap["username"] = currentUser
-        users.child(currentUser).setValue(usermap)
-            .addOnCompleteListener { task->
-                if (task.isSuccessful){
-                    Toast.makeText(getActivity(), "Account has been created succesfully", Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-
+    private fun init(){
+        registrationEmailAddress = requireView().findViewById(R.id.registrationEmailAddress)
+        registrationPassword = requireView().findViewById(R.id.registrationPassword)
+        registrationButton = requireView().findViewById(R.id.registrationButton)
+        username = requireView().findViewById(R.id.username)
+        registrationPasswordRepeat = requireView().findViewById(R.id.registrationPasswordRepeat)
+        termsOfServiceCheckBox = requireView().findViewById(R.id.termsOfServiceCheckBox)
+        termsOfService = requireView().findViewById(R.id.termsOfService)
     }
 }

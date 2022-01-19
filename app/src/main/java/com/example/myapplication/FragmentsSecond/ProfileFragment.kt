@@ -32,6 +32,7 @@ class ProfileFragment : Fragment() {
         view.edit_profile_settings_button.setOnClickListener{
             val intent = Intent(context , AccountSettings::class.java)
             startActivity(intent)
+            requireActivity().finish()
         }
         return view
 

@@ -15,15 +15,7 @@
         <activity
             android:name=".MainActivityTwo"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.MyApplication.NoActionBar" />
-        <activity
-            android:name=".MainPartActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main_part" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

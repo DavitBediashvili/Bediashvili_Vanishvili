@@ -31,11 +31,8 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextEmailAddress = view.findViewById(R.id.editTextEmailAddress)
-        editTextPassword = view.findViewById(R.id.editTextPassword)
-        authorizationButton = view.findViewById(R.id.authorizationButton)
-        passwordReset = view.findViewById(R.id.passwordReset)
-        fromAuthScreenToRegScreen = view.findViewById(R.id.fromAuthScreenToRegScreen)
+        init()
+        authorization()
 
         val controller = Navigation.findNavController(view)
 
@@ -47,6 +44,15 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
             }
         })
 
+        passwordReset.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                ResetPasswordDialog(requireContext()).show()
+
+            }
+        })
+
+    }
+    private fun authorization(){
         authorizationButton.setOnClickListener {
             var mailInput = editTextEmailAddress.text.toString()
             var passwordInput = editTextPassword.text.toString()
@@ -63,6 +69,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
                             Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
                             val intent = Intent(activity, MainActivityTwo::class.java)
                             startActivity(intent)
+                            requireActivity().finish()
                         } else
                             Toast.makeText(
                                 getActivity(),
@@ -71,12 +78,14 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
                             ).show()
                     }
         }
-        passwordReset.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                ResetPasswordDialog(requireContext()).show()
+    }
 
-            }
-        })
 
+    private fun init(){
+        editTextEmailAddress = requireView().findViewById(R.id.editTextEmailAddress)
+        editTextPassword = requireView().findViewById(R.id.editTextPassword)
+        authorizationButton = requireView().findViewById(R.id.authorizationButton)
+        passwordReset = requireView().findViewById(R.id.passwordReset)
+        fromAuthScreenToRegScreen = requireView().findViewById(R.id.fromAuthScreenToRegScreen)
     }
 }

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,22 +24,16 @@ import kotlinx.android.synthetic.main.fragment_registrationscreen.*
 import kotlinx.android.synthetic.main.fragment_search.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [SearchFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SearchFragment : Fragment() {
-
-
+class SearchFragment : Fragment()
+{
     private var recyclerView: RecyclerView? = null
     private var userAdapter: UserAdapter? = null
-    private var mUser: MutableList<User>? = null
+    private var mUser: MutableList<com.example.myapplication.Model.User>? = null
 
 
     override fun onCreateView(
@@ -63,12 +58,11 @@ class SearchFragment : Fragment() {
             }
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (search_edittext.text.toString() == ""){
-
+                    Toast.makeText(requireActivity(),"There is no username",Toast.LENGTH_SHORT)
 
                 }
                 else{
                     recyclerView?.visibility = View.VISIBLE
-
 
                     searchedUsers()
                     searchUsers(s.toString().toLowerCase())
@@ -84,34 +78,31 @@ class SearchFragment : Fragment() {
         })
 
 
-
-
-
         return view
     }
-
-    private fun searchUsers(input: String) {
+    fun searchUsers(input: String) {
         var letsSearch = FirebaseDatabase.getInstance().getReference()
-            .child("Users").orderByChild(username.toString())
+            .child("Users")
+            .orderByChild("usernameRead")
             .startAt(input)
             .endAt(input + "\uf0ff")
         letsSearch.addValueEventListener(object  : ValueEventListener{
             override fun onDataChange(Datasnapshot: DataSnapshot) {
 
 
-                    mUser?.clear()
+                mUser?.clear()
 
-                    for (snapshot in Datasnapshot.children){
-                        val user = snapshot.getValue(User::class.java)
-                        if (user!=null){
+                for (snapshot in Datasnapshot.children){
+                    val user = snapshot.getValue(User::class.java)
+                    if (user!=null){
 
-                            mUser?.add(user)
+                        mUser?.add(user)
 
-
-                        }
 
                     }
-                    userAdapter?.notifyDataSetChanged()
+
+                }
+                userAdapter?.notifyDataSetChanged()
 
             }
 
@@ -124,7 +115,8 @@ class SearchFragment : Fragment() {
     }
 
     fun searchedUsers(){
-        var users = FirebaseDatabase.getInstance().getReference().child("Users")
+        var users = FirebaseDatabase.getInstance().getReference()
+            .child("Users")
         users.addValueEventListener(object  : ValueEventListener{
             override fun onDataChange(Datasnapshot: DataSnapshot) {
                 mUser?.clear()
@@ -150,5 +142,6 @@ class SearchFragment : Fragment() {
 
         })
     }
+
 }
 

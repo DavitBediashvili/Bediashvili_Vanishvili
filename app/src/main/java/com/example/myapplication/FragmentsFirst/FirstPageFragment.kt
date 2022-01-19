@@ -19,9 +19,7 @@ class FirstPageFragment: Fragment(R.layout.fragment_firstpage){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        transferToRegScreenButton = view.findViewById(R.id.transferToRegScreenButton)
-        transferToAuthScreenButton = view.findViewById(R.id.transferToAuthScreenButton)
-        logo = view.findViewById(R.id.logo)
+        init()
 
         val controller = Navigation.findNavController(view)
 
@@ -42,5 +40,10 @@ class FirstPageFragment: Fragment(R.layout.fragment_firstpage){
         })
 
 
+    }
+    private fun init(){
+        transferToRegScreenButton = requireView().findViewById(R.id.transferToRegScreenButton)
+        transferToAuthScreenButton = requireView().findViewById(R.id.transferToAuthScreenButton)
+        logo = requireView().findViewById(R.id.logo)
     }
 }

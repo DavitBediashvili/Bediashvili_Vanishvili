@@ -23,8 +23,7 @@ class ResetPasswordDialog(context: Context): Dialog(context) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.resetpassword_dialog)
-        submitButtonRP = findViewById(R.id.submitButtonRP)
-        editTextEmailAddressDialog = findViewById(R.id.editTextEmailAddressDialog)
+        init()
 
         submitButtonRP.setOnClickListener{
                 var mailinput = editTextEmailAddressDialog.text.toString()
@@ -40,5 +39,9 @@ class ResetPasswordDialog(context: Context): Dialog(context) {
         }
 
 
+    }
+    private fun init(){
+        submitButtonRP = findViewById(R.id.submitButtonRP)
+        editTextEmailAddressDialog = findViewById(R.id.editTextEmailAddressDialog)
     }
 }
