@@ -1,5 +1,7 @@
 package com.example.exam.Fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.View
@@ -46,6 +48,14 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
     private fun saveUserInfo(usernameRead: String, mailInput: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+        val sharedpreferences = requireActivity().getSharedPreferences("username" , Context.MODE_PRIVATE)
+        val text = sharedpreferences.getString("Username" , "username")
+        username_profile.text = text
+        registrationButton.setOnClickListener {
+            var addusername = username.text.toString()
+            sharedpreferences.edit().putString(addusername  , "Username" ).apply()
+
+        }
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
         val userMap = HashMap<String, Any>()
@@ -65,21 +75,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
             }
 
-        usersRef.child(FirebaseAuth.getInstance().currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userinfoo = snapshot.getValue(UserInfo::class.java)
-                if (userinfoo == null){
-                    return
-                }
-                username_profile.text = userinfoo.usernameRead
 
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
     private fun registration(){
         registrationButton.setOnClickListener {
