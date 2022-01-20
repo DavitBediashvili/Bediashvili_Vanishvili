@@ -26,29 +26,13 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
     private lateinit var termsOfServiceCheckBox: CheckBox
     private lateinit var termsOfService: TextView
     private val auth = FirebaseAuth.getInstance()
-    private  var db = FirebaseDatabase.getInstance().reference.child("usernameRead")
+    private val dbUserInfo: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsernameReadd")
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
         registration()
-        db.child(auth.currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userInfoo = snapshot.getValue(UserInfo::class.java)
-                if (userInfoo == null){
-                    return
-                }
-                else{
-                    username_profile.text = userInfoo.usernameRead
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
 
 
         termsOfService.setOnClickListener(object : View.OnClickListener {
@@ -59,13 +43,13 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
         })
     }
 
-    private fun saveUserInfo(usernameRead: String, mailInput: String) {
+    private fun saveUserInfo(usernameReadd: String, mailInput: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
         val userMap = HashMap<String, Any>()
         userMap["uid"] = currentUserID
-        userMap["usernameRead"] = usernameRead
+        userMap["usernameRead"] = usernameReadd
         userMap["mailInput"] = mailInput
         userMap["image"] = "theapk-4cf05-default-rtdb"
 
@@ -87,9 +71,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
             var mailInput = registrationEmailAddress.text.toString()
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
-            var usernameRead = username.text.toString().lowercase()
-            val userinformation = UserInfo(usernameRead)
-            db.child(auth.currentUser?.uid!!).setValue(userinformation)
+            var usernameReadd = username.text.toString()
+
 
             val controller = Navigation.findNavController(requireView())
 
@@ -111,7 +94,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .createUserWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
-                            saveUserInfo(usernameRead, mailInput)
+                            val userInfo = UserInfo(usernameReadd)
+                            dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
                             val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
                             controller.navigate(action)
