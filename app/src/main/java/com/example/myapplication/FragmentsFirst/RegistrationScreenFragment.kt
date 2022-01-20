@@ -65,8 +65,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
         val userMap = HashMap<String, Any>()
         userMap["uid"] = currentUserID
-        userMap["usernameRead"] = usernameRead.lowercase()
-        userMap["mailInput"] = mailInput.lowercase()
+        userMap["usernameRead"] = usernameRead
+        userMap["mailInput"] = mailInput
         userMap["image"] = "theapk-4cf05-default-rtdb"
 
         usersRef.child(currentUserID).setValue(userMap)
