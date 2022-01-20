@@ -22,6 +22,8 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
     lateinit var exactCarSedanImage: Array<Int>
     lateinit var exactCarSUV: Array<String>
     lateinit var exactCarSUVImage: Array<Int>
+    lateinit var exactCarSedanPrice: Array<String>
+    lateinit var exactCarSUVPrice: Array<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,6 +81,22 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
 
         )
 
+        exactCarSedanPrice = arrayOf(
+            "From 47 € for 3 hours\n(Additional kilometer (>200 km)  €0.31/km)",
+            "From 59 € for 3 hours\n(Additional kilometer (>200 km)  €0.42/km)",
+            "From 49 € for 3 hours\n(Additional kilometer (>200 km)  €0.32/km)",
+            "From 59 € for 3 hours\n(Additional kilometer (>200 km)  €0.42/km)",
+            "From 56 € for 3 hours\n(Additional kilometer (>200 km)  €0.36/km)"
+        )
+
+        exactCarSUVPrice = arrayOf(
+            "From 64 €,for 3 hours\n(Additional kilometer (>200 km)  €0.49/km)",
+            "From 65 €,for 3 hours\n(Additional kilometer (>200 km)  €0.51/km)",
+            "From 60 €,for 3 hours\n(Additional kilometer (>200 km)  €0.45/km)",
+            "From 57 €,for 3 hours\n(Additional kilometer (>200 km)  €0.36/km)",
+            "From 63 €,for 3 hours\n(Additional kilometer (>200 km)  €0.47/km)"
+        )
+
         recyclerView = view.findViewById(R.id.recyclerViewCar)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
@@ -111,6 +129,8 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
                 intent.putExtra("exactCarSUVImage",exactCarSUVImage[position])
                 intent.putExtra("exactCarSedan",exactCarSedan[position])
                 intent.putExtra("exactCarSUV",exactCarSUV[position])
+                intent.putExtra("exactCarSedanPrice",exactCarSedanPrice[position])
+                intent.putExtra("exactCarSUVPrice",exactCarSUVPrice[position])
                 startActivity(intent)
 
             }
