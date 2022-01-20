@@ -1,5 +1,6 @@
 package com.example.myapplication.FragmentSecond
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.Adapter.RecyclerViewCarAdapter
 import com.example.myapplication.CarData
+import com.example.myapplication.ExactCarActivity
 import com.example.myapplication.R
 
 class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
@@ -62,7 +64,12 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
         adapter.setOnItemClickListener(object : RecyclerViewCarAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
 
-                Toast.makeText(requireActivity(),"you clicked on $position", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireActivity(),"you clicked on $position", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(activity, ExactCarActivity::class.java)
+                intent.putExtra("name",newArrayList[position].name)
+                intent.putExtra("imageId",newArrayList[position].image)
+                startActivity(intent)
 
             }
 
