@@ -2,32 +2,66 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 
 class ExactCarActivity : AppCompatActivity() {
 
     private lateinit var CarImageViewActivity: ImageView
+    private lateinit var CarImageView2: ImageView
+    private lateinit var CarImageView3: ImageView
     private lateinit var CarNameActivity: TextView
+    private lateinit var CarNameActivity2: TextView
+    private lateinit var CarNameActivity3: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_exact_car)
+        setContentView(R.layout.activity_exactcar)
 
         val actionBar: ActionBar? = supportActionBar
         actionBar?.hide()
-
-        CarImageViewActivity = findViewById(R.id.CarImageViewActivity)
-        CarNameActivity = findViewById(R.id.CarNameActivity)
-
+        init()
 
         val bundle: Bundle?= intent.extras
         val name = bundle!!.getString("name")
         val imageId = bundle.getInt("imageId")
+        val exactCarSedanImage = bundle.getInt("exactCarSedanImage")
+        val exactCarSUVImage = bundle.getInt("exactCarSUVImage")
+        val exactCarSedan = bundle.getString("exactCarSedan")
+        val exactCarSUV = bundle.getString("exactCarSUV")
+
+        CarNameActivity2.setOnClickListener{
+            android.widget.Toast.makeText(this, "$exactCarSedan will arrive in 30 minutes", Toast.LENGTH_SHORT).show()
+        }
+
+        CarNameActivity3.setOnClickListener{
+            android.widget.Toast.makeText(this, "$exactCarSUV will arrive in 30 minutes", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
+
+
 
         CarNameActivity.text = name
+        CarNameActivity2.text = exactCarSedan
+        CarNameActivity3.text = exactCarSUV
         CarImageViewActivity.setImageResource(imageId)
+        CarImageView2.setImageResource(exactCarSedanImage)
+        CarImageView3.setImageResource(exactCarSUVImage)
 
     }
+
+    private fun init(){
+        CarImageViewActivity = findViewById(R.id.CarImageViewActivity)
+        CarImageView2 = findViewById(R.id.CarImageView2)
+        CarImageView3 = findViewById(R.id.CarImageView3)
+        CarNameActivity = findViewById(R.id.CarNameActivity)
+        CarNameActivity2 = findViewById(R.id.CarNameActivity2)
+        CarNameActivity3 = findViewById(R.id.CarNameActivity3)
+
+    }
+
 }

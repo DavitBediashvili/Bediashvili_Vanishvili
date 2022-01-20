@@ -20,6 +20,10 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
     private lateinit var newArrayList: ArrayList<CarData>
     lateinit var imageId: Array<Int>
     lateinit var name: Array<String>
+    lateinit var exactCarSedan: Array<String>
+    lateinit var exactCarSedanImage: Array<Int>
+    lateinit var exactCarSUV: Array<String>
+    lateinit var exactCarSUVImage: Array<Int>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,6 +43,42 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "BMW",
             "Mustang",
             "Toyota"
+        )
+
+        exactCarSedan = arrayOf(
+            "Volkswagen Jetta",
+            "Audi A5",
+            "BMW 330i",
+            "Ford Mustang S550",
+            "Toyota Camry"
+
+
+        )
+
+        exactCarSedanImage = arrayOf(
+            R.drawable.volkswagen_jetta,
+            R.drawable.audi_a,
+            R.drawable.bmw_i,
+            R.drawable.ford_mustang_s,
+            R.drawable.toyota_camry
+
+        )
+
+        exactCarSUV = arrayOf(
+            "Volkswagen Atlas",
+            "Audi Q5",
+            "BMW X5",
+            "Ford Mustang Mach-E",
+            "Toyota RAV4"
+        )
+
+        exactCarSUVImage = arrayOf(
+            R.drawable.volkswagen_atlas,
+            R.drawable.audi_q,
+            R.drawable.bmw_x,
+            R.drawable.ford_mustang_mach,
+            R.drawable.toyota_rav
+
         )
 
         recyclerView = view.findViewById(R.id.recyclerViewCar)
@@ -69,6 +109,10 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
                 val intent = Intent(activity, ExactCarActivity::class.java)
                 intent.putExtra("name",newArrayList[position].name)
                 intent.putExtra("imageId",newArrayList[position].image)
+                intent.putExtra("exactCarSedanImage",exactCarSedanImage[position])
+                intent.putExtra("exactCarSUVImage",exactCarSUVImage[position])
+                intent.putExtra("exactCarSedan",exactCarSedan[position])
+                intent.putExtra("exactCarSUV",exactCarSUV[position])
                 startActivity(intent)
 
             }
