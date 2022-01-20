@@ -43,29 +43,29 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
         })
     }
 
-    private fun saveUserInfo(usernameReadd: String, mailInput: String) {
-        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
-        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
-
-        val userMap = HashMap<String, Any>()
-        userMap["uid"] = currentUserID
-        userMap["usernameRead"] = usernameReadd
-        userMap["mailInput"] = mailInput
-        userMap["image"] = "theapk-4cf05-default-rtdb"
-
-        usersRef.child(currentUserID).setValue(userMap)
-            .addOnCompleteListener{task ->
-                if (task.isSuccessful){
-                    Toast.makeText(getActivity(), "Big Success ", Toast.LENGTH_SHORT)
-                }
-                else{
-                    Toast.makeText(getActivity(), "Fail ", Toast.LENGTH_SHORT)
-                }
-
-            }
-
-
-    }
+//    private fun saveUserInfo(usernameReadd: String, mailInput: String) {
+//        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+//        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
+//
+//        val userMap = HashMap<String, Any>()
+//        userMap["uid"] = currentUserID
+//        userMap["usernameRead"] = usernameReadd
+//        userMap["mailInput"] = mailInput
+//        userMap["image"] = "theapk-4cf05-default-rtdb"
+//
+//        usersRef.child(currentUserID).setValue(userMap)
+//            .addOnCompleteListener{task ->
+//                if (task.isSuccessful){
+//                    Toast.makeText(getActivity(), "Big Success ", Toast.LENGTH_SHORT)
+//                }
+//                else{
+//                    Toast.makeText(getActivity(), "Fail ", Toast.LENGTH_SHORT)
+//                }
+//
+//            }
+//
+//
+//    }
     private fun registration(){
         registrationButton.setOnClickListener {
             var mailInput = registrationEmailAddress.text.toString()

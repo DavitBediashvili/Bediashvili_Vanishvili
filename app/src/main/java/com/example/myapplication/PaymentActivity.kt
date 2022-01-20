@@ -23,6 +23,8 @@ class PaymentActivity: AppCompatActivity() {
     private lateinit var CvvEditText: EditText
     private lateinit var submitButtonP: Button
     private lateinit var backImageView: ImageView
+    private var dbUserInfo: DatabaseReference = FirebaseDatabase.getInstance().getReference("gela")
+    private var auth = FirebaseAuth.getInstance()
 
 
 
@@ -38,6 +40,7 @@ class PaymentActivity: AppCompatActivity() {
             var month = MonthEditText.text.toString()
             var year = YearEditText.text.toString()
             var cvv = CvvEditText.text.toString()
+
 
             val carName = intent.getStringExtra("car")
 
@@ -57,7 +60,9 @@ class PaymentActivity: AppCompatActivity() {
 
                 Toast.makeText(this,"$carName will be delivered soon",Toast.LENGTH_SHORT).show()
 
-                saveUserInfo(carName)
+
+                val userInfo = UserInfo(history = "$carName")
+                dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
 
                 Handler().postDelayed({
                     val intent = Intent(this, MainActivity2::class.java)
@@ -83,23 +88,23 @@ class PaymentActivity: AppCompatActivity() {
         backImageView = findViewById(R.id.backImageView)
 
     }
-    private fun saveUserInfo(carName: String?) {
-        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
-        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("History")
-
-        val userMap = HashMap<String, Any>()
-        userMap["uid"] = currentUserID
-        userMap["carName"] = carName!!.lowercase()
-
-        usersRef.child(currentUserID).setValue(userMap)
-            .addOnCompleteListener{task ->
-                if (task.isSuccessful){
-                    Toast.makeText(this, "Big Success ", Toast.LENGTH_SHORT)
-                }
-                else{
-                    Toast.makeText(this, "Fail ", Toast.LENGTH_SHORT)
-                }
-
-            }
-    }
+//    private fun saveUserInfo(carName: String?) {
+//        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+//        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("History")
+//
+//        val userMap = HashMap<String, Any>()
+//        userMap["uid"] = currentUserID
+//        userMap["carName"] = carName!!.lowercase()
+//
+//        usersRef.child(currentUserID).setValue(userMap)
+//            .addOnCompleteListener{task ->
+//                if (task.isSuccessful){
+//                    Toast.makeText(this, "Big Success ", Toast.LENGTH_SHORT)
+//                }
+//                else{
+//                    Toast.makeText(this, "Fail ", Toast.LENGTH_SHORT)
+//                }
+//
+//            }
+//    }
 }

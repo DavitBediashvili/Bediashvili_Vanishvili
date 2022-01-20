@@ -17,7 +17,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
     private lateinit var username: TextView
     private var auth = FirebaseAuth.getInstance()
     private val dbUserInfo: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference("UserInfo")
+        FirebaseDatabase.getInstance().getReference("UsernameReadd")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

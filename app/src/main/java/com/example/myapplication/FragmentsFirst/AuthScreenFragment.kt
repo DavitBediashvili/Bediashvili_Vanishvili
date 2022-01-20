@@ -19,6 +19,8 @@ import com.example.myapplication.ResetPasswordDialog
 import com.example.myapplication.UserInfo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 
@@ -29,6 +31,9 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var authorizationButton: Button
     private lateinit var passwordReset: TextView
     private lateinit var fromAuthScreenToRegScreen: TextView
+    private val auth = FirebaseAuth.getInstance()
+    private val dbUserInfo: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsernameReadd")
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -73,6 +78,8 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
+                            val userInfo = UserInfo(usernameInput)
+                            dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
                             val intent = Intent(activity, MainActivity2::class.java)
                             startActivity(intent)
                             requireActivity().finish()
