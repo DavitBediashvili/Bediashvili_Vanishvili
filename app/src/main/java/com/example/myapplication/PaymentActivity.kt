@@ -5,14 +5,10 @@ import android.os.Bundle
 
 import android.content.Intent
 import android.os.Handler
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 
 class PaymentActivity: AppCompatActivity() {
@@ -63,6 +59,7 @@ class PaymentActivity: AppCompatActivity() {
 
                 val userInfo = UserInfo(history = "$carName")
                 dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
+
 
                 Handler().postDelayed({
                     val intent = Intent(this, MainActivity2::class.java)

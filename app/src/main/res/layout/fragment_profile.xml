@@ -65,9 +65,43 @@
         android:layout_marginRight="50dp"
         android:background="@drawable/shape" />
 
+    <LinearLayout
+        android:id="@+id/carRental"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_profile"
+        android:layout_marginTop="59dp">
+
+        <TextView
+            android:id="@+id/lastRental"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="100dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="Last Rental"
+            android:textSize="22sp"
+            android:textStyle="bold">
 
 
+        </TextView>
 
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lastRentalCar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/carRental"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Car"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
 
 
