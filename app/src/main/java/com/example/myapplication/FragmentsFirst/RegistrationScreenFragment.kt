@@ -1,7 +1,5 @@
 package com.example.exam.Fragments
 
-import android.content.Context
-import android.content.SharedPreferences
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.View
@@ -28,14 +26,29 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
     private lateinit var termsOfServiceCheckBox: CheckBox
     private lateinit var termsOfService: TextView
     private val auth = FirebaseAuth.getInstance()
+    private  var db = FirebaseDatabase.getInstance().reference.child("usernameRead")
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
-
-
         registration()
+        db.child(auth.currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userInfoo = snapshot.getValue(UserInfo::class.java)
+                if (userInfoo == null){
+                    return
+                }
+                else{
+                    username_profile.text = userInfoo.usernameRead
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
 
         termsOfService.setOnClickListener(object : View.OnClickListener {
@@ -48,14 +61,6 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
     private fun saveUserInfo(usernameRead: String, mailInput: String) {
         val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
-        val sharedpreferences = requireActivity().getSharedPreferences("username" , Context.MODE_PRIVATE)
-        val text = sharedpreferences.getString("Username" , "username")
-        username_profile.text = text
-        registrationButton.setOnClickListener {
-            var addusername = username.text.toString()
-            sharedpreferences.edit().putString(addusername  , "Username" ).apply()
-
-        }
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
         val userMap = HashMap<String, Any>()
@@ -83,6 +88,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
             var usernameRead = username.text.toString().lowercase()
+            val userinformation = UserInfo(usernameRead)
+            db.child(auth.currentUser?.uid!!).setValue(userinformation)
 
             val controller = Navigation.findNavController(requireView())
 
