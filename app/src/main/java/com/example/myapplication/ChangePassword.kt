@@ -49,7 +49,7 @@ class ChangePassword : Fragment(R.layout.changepassword)
         if (readcurrent.isNotEmpty()|| readnew.isNotEmpty() || readconfrim.isNotEmpty()){
             if (readnew.equals((readconfrim))){
                 val user = auth.currentUser
-                if (user !=null){
+                if (user !=null ){
                     val credential = EmailAuthProvider
                         .getCredential(registrationEmailAddress.text.toString(), registrationPassword.text.toString())
 

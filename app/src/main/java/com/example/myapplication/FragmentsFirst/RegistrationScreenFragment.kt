@@ -8,10 +8,11 @@ import androidx.navigation.Navigation
 import com.example.myapplication.R
 import com.example.myapplication.ResetPasswordDialog
 import com.example.myapplication.TermsOfServiceDialog
+import com.example.myapplication.UserInfo
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_registrationscreen.*
 import java.util.*
 import kotlin.collections.HashMap
@@ -30,6 +31,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+
 
         registration()
 
@@ -62,6 +64,22 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                 }
 
             }
+
+        usersRef.child(FirebaseAuth.getInstance().currentUser?.uid!!).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userinfoo = snapshot.getValue(UserInfo::class.java)
+                if (userinfoo == null){
+                    return
+                }
+                username_profile.text = userinfoo.usernameRead
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
     private fun registration(){
         registrationButton.setOnClickListener {
