@@ -14,6 +14,8 @@ class ExactCarActivity : AppCompatActivity() {
     private lateinit var CarNameActivity: TextView
     private lateinit var CarNameActivity2: TextView
     private lateinit var CarNameActivity3: TextView
+    private lateinit var CarInfoSedanTextView: TextView
+    private lateinit var CarInfoSUVTextView: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,8 @@ class ExactCarActivity : AppCompatActivity() {
         val exactCarSUVImage = bundle.getInt("exactCarSUVImage")
         val exactCarSedan = bundle.getString("exactCarSedan")
         val exactCarSUV = bundle.getString("exactCarSUV")
+        val exactCarSedanPrice = bundle.getString("exactCarSedanPrice")
+        val exactCarSUVPrice = bundle.getString("exactCarSUVPrice")
 
 
 
@@ -61,6 +65,8 @@ class ExactCarActivity : AppCompatActivity() {
         CarNameActivity.text = name
         CarNameActivity2.text = exactCarSedan
         CarNameActivity3.text = exactCarSUV
+        CarInfoSedanTextView.text = exactCarSedanPrice
+        CarInfoSUVTextView.text = exactCarSUVPrice
         CarImageViewActivity.setImageResource(imageId)
         CarImageView2.setImageResource(exactCarSedanImage)
         CarImageView3.setImageResource(exactCarSUVImage)
@@ -74,6 +80,8 @@ class ExactCarActivity : AppCompatActivity() {
         CarNameActivity = findViewById(R.id.CarNameActivity)
         CarNameActivity2 = findViewById(R.id.CarNameActivity2)
         CarNameActivity3 = findViewById(R.id.CarNameActivity3)
+        CarInfoSedanTextView = findViewById(R.id.CarInfoSedanTextView)
+        CarInfoSUVTextView = findViewById(R.id.CarInfoSUVTextView)
 
     }
 

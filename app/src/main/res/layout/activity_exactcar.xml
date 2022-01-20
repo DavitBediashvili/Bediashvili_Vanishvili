@@ -68,6 +68,7 @@
             android:layout_marginTop="63dp"
             android:layout_weight="1"
             android:text="TextView"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -103,15 +104,28 @@
             android:id="@+id/CarNameActivity2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="90dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="110dp"
             android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textStyle="bold"
             android:textAlignment="center"
+            android:textColor="@color/black"
 
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/CarInfoSedanTextView"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CarNameActivity2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,15 +156,27 @@
             android:id="@+id/CarNameActivity3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="90dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="110dp"
             android:text="TextView"
+            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/CarInfoSUVTextView"
+            android:layout_width="245dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CarNameActivity3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
