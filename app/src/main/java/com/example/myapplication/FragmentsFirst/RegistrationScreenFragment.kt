@@ -48,9 +48,9 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
 
         val userMap = HashMap<String, Any>()
         userMap["uid"] = currentUserID
-        userMap["usernameRead"] = usernameRead.toLowerCase()
-        userMap["mailInput"] = mailInput.toLowerCase()
-        userMap["image"] = "https://firebasestorage.googleapis.com/v0/b/theapk-4cf05.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=43f0d7d5-0131-4703-9722-c8d83e991b49"
+        userMap["usernameRead"] = usernameRead.lowercase()
+        userMap["mailInput"] = mailInput.lowercase()
+        userMap["image"] = "theapk-4cf05-default-rtdb"
 
         usersRef.child(currentUserID).setValue(userMap)
             .addOnCompleteListener{task ->
@@ -68,7 +68,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
             var mailInput = registrationEmailAddress.text.toString()
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
-            var usernameRead = username.text.toString().toLowerCase()
+            var usernameRead = username.text.toString().lowercase()
 
             val controller = Navigation.findNavController(requireView())
 

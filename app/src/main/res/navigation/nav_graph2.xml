@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/carLogoFragment">
+
+
+    <fragment
+        android:id="@+id/carLogoFragment"
+        android:name="com.example.myapplication.FragmentSecond.CarLogoFragment"
+        tools:layout="@layout/fragment_carlogo"
+        android:label="CarLogoFragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myapplication.FragmentSecond.ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="ProfileFragment" />
+
+</navigation>

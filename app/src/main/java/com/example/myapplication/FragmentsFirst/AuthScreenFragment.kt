@@ -13,7 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.myapplication.FragmentsFirst.FirstPageFragmentDirections
-import com.example.myapplication.MainActivityTwo
+import com.example.myapplication.MainActivity2
 import com.example.myapplication.R
 import com.example.myapplication.ResetPasswordDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -67,7 +67,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(activity, MainActivityTwo::class.java)
+                            val intent = Intent(activity, MainActivity2::class.java)
                             startActivity(intent)
                             requireActivity().finish()
                         } else
