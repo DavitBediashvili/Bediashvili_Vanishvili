@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExactCarActivity"
-    android:background="@drawable/main_background">
+    android:background="@drawable/gray">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#2B42DA"
+        android:background="#131313"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,18 +20,10 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/motionpicture"
             android:text="Bilde"
-            android:textColor="@color/black"
+            android:textColor="@color/govha"
             android:textSize="40sp">
 
         </TextView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/thetesla"
-            android:layout_marginLeft="300dp">
-
-        </ImageView>
 
     </LinearLayout>
 

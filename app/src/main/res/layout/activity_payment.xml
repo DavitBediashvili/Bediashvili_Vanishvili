@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
+    android:background="@drawable/gray"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="#2B42DA"
+        android:background="#131313"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,18 +20,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/motionpicture"
             android:text="Bilde"
-            android:textColor="@color/black"
+            android:textColor="@color/govha"
             android:textSize="40sp">
 
         </TextView>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/thetesla"
-            android:layout_marginLeft="300dp">
 
-        </ImageView>
 
     </LinearLayout>
 
@@ -42,7 +36,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="190dp"
         android:text="Enter your payment details"
-        android:textColor="@color/white"
+        android:textColor="#131313"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,12 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
-        android:drawableRight="@drawable/card"
+        android:drawableRight="@drawable/card_icon"
         android:ems="10"
         android:hint=" 0000  0000  0000  0000"
         android:inputType="number"
-        android:textColor="#99FFFFFF"
-        android:textColorHint="#99FFFFFF"
+        android:textColor="#99131313"
+        android:textColorHint="#99131313"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -83,8 +77,8 @@
             android:ems="10"
             android:hint=" Year"
             android:inputType="number"
-            android:textColor="#99FFFFFF"
-            android:textColorHint="#99FFFFFF"
+            android:textColor="#99131313"
+            android:textColorHint="#99131313"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="150dp"
             tools:layout_editor_absoluteY="241dp" />
@@ -97,8 +91,8 @@
             android:ems="10"
             android:hint=" CVV"
             android:inputType="number"
-            android:textColor="#99FFFFFF"
-            android:textColorHint="#99FFFFFF"
+            android:textColor="#99131313"
+            android:textColorHint="#99131313"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="214dp"
             tools:layout_editor_absoluteY="133dp" />
@@ -111,8 +105,8 @@
             android:ems="10"
             android:hint=" Month"
             android:inputType="number"
-            android:textColor="#99FFFFFF"
-            android:textColorHint="#99FFFFFF"
+            android:textColor="#99131313"
+            android:textColorHint="#99131313"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="321dp" />
@@ -125,8 +119,8 @@
         android:id="@+id/submitButtonP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#50B3A7A7"
-        android:backgroundTint="#002BFF"
+        android:background="#20131313"
+        android:backgroundTint="#131313"
         android:text="submit"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
