@@ -38,6 +38,7 @@ class ExactCarActivity : AppCompatActivity() {
         CarNameActivity2.setOnClickListener{
             val intent = Intent(this, PaymentActivity::class.java)
             intent.putExtra("car","$exactCarSedan")
+            intent.putExtra("carPhoto","$exactCarSedanImage")
             startActivity(intent)
             finish()
         }
@@ -45,6 +46,8 @@ class ExactCarActivity : AppCompatActivity() {
         CarNameActivity3.setOnClickListener{
             val intent = Intent(this, PaymentActivity::class.java)
             intent.putExtra("car","$exactCarSUV")
+            intent.putExtra("carPhoto","$exactCarSUVImage")
+
             startActivity(intent)
             finish()
         }

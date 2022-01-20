@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
 class PaymentActivity: AppCompatActivity() {
@@ -36,6 +39,8 @@ class PaymentActivity: AppCompatActivity() {
             var year = YearEditText.text.toString()
             var cvv = CvvEditText.text.toString()
 
+            val carName = intent.getStringExtra("car")
+
             if (cardnumber.isEmpty() || cardnumber.length != 16 || !cardnumber.matches(".*[0-9].*".toRegex())) {
                 CarNumberEditText.error = "Please write correct cardnumber"
             }
@@ -49,8 +54,10 @@ class PaymentActivity: AppCompatActivity() {
                 CvvEditText.error = "Please write correct CVV"
             }
             else{
-                val carName = intent.getStringExtra("car")
+
                 Toast.makeText(this,"$carName will be delivered soon",Toast.LENGTH_SHORT).show()
+
+                saveUserInfo(carName)
 
                 Handler().postDelayed({
                     val intent = Intent(this, MainActivity2::class.java)
@@ -75,5 +82,24 @@ class PaymentActivity: AppCompatActivity() {
         submitButtonP = findViewById(R.id.submitButtonP)
         backImageView = findViewById(R.id.backImageView)
 
+    }
+    private fun saveUserInfo(carName: String?) {
+        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
+        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("History")
+
+        val userMap = HashMap<String, Any>()
+        userMap["uid"] = currentUserID
+        userMap["carName"] = carName!!.lowercase()
+
+        usersRef.child(currentUserID).setValue(userMap)
+            .addOnCompleteListener{task ->
+                if (task.isSuccessful){
+                    Toast.makeText(this, "Big Success ", Toast.LENGTH_SHORT)
+                }
+                else{
+                    Toast.makeText(this, "Fail ", Toast.LENGTH_SHORT)
+                }
+
+            }
     }
 }
