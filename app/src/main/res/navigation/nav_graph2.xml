@@ -16,6 +16,36 @@
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.FragmentSecond.ProfileFragment"
         tools:layout="@layout/fragment_profile"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_registrationScreenFragment"
+            app:destination="@id/registrationScreenFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePassword2"
+            app:destination="@id/changePassword2" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.myapplication.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/registrationScreenFragment"
+        android:name="com.example.exam.Fragments.RegistrationScreenFragment"
+        android:label="RegistrationScreenFragment" />
+    <fragment
+        android:id="@+id/changePassword2"
+        android:name="com.example.myapplication.ChangePassword"
+        android:label="ChangePassword" >
+        <action
+            android:id="@+id/action_changePassword2_to_authScreenFragment"
+            app:destination="@id/authScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authScreenFragment"
+        android:name="com.example.exam.Fragments.AuthScreenFragment"
+        android:label="AuthScreenFragment" />
 
 </navigation>

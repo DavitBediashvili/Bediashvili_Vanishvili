@@ -3,12 +3,10 @@ package com.example.myapplication.FragmentSecond
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.Adapter.RecyclerViewCarAdapter
+import com.example.myapplication.FragmentSecond.Adapter.RecyclerViewCarAdapter
 import com.example.myapplication.CarData
 import com.example.myapplication.ExactCarActivity
 import com.example.myapplication.R
