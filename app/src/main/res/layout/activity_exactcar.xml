@@ -5,14 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExactCarActivity"
-    android:background="#2B42DA">
+    android:background="@drawable/main_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#2B42DA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/motionpicture"
+            android:text="Bilde"
+            android:textColor="@color/black"
+            android:textSize="40sp">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/thetesla"
+            android:layout_marginLeft="300dp">
+
+        </ImageView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +108,8 @@
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:textAlignment="center"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,6 +145,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="90dp"
             android:text="TextView"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"

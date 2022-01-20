@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -31,12 +32,21 @@ class ExactCarActivity : AppCompatActivity() {
         val exactCarSedan = bundle.getString("exactCarSedan")
         val exactCarSUV = bundle.getString("exactCarSUV")
 
+
+
+
         CarNameActivity2.setOnClickListener{
-            android.widget.Toast.makeText(this, "$exactCarSedan will arrive in 30 minutes", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra("car","$exactCarSedan")
+            startActivity(intent)
+            finish()
         }
 
         CarNameActivity3.setOnClickListener{
-            android.widget.Toast.makeText(this, "$exactCarSUV will arrive in 30 minutes", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PaymentActivity::class.java)
+            intent.putExtra("car","$exactCarSUV")
+            startActivity(intent)
+            finish()
         }
 
 
