@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gray">
+    android:background="@drawable/back_reg">
 
 
     <EditText
@@ -14,8 +14,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="300dp"
         android:ems="10"
-        android:background="#50B3A7A7"
-        android:hint="Mail"
+        android:drawableLeft="@drawable/email"
+        android:paddingLeft="5dp"
+        android:background="@drawable/shape"
+        android:hint="  Mail"
         android:textSize="22sp"
         android:inputType="textEmailAddress"
         android:textColor="#99131313"
@@ -25,21 +27,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/username_text"
-        android:layout_width="290dp"
-        android:layout_height="40dp"
-        android:background="#50B3A7A7"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        android:textColor="#99131313"
-        android:textColorHint="#99131313"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+<!--    <EditText-->
+<!--        android:id="@+id/username_text"-->
+<!--        android:layout_width="290dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="@drawable/shape"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Username"-->
+<!--        android:inputType="text"-->
+<!--        android:textColor="#99131313"-->
+<!--        android:textColorHint="#99131313"-->
+<!--        android:textSize="22sp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/editTextEmailAddress"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView" />-->
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -47,8 +49,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:background="#50B3A7A7"
-        android:hint="Password"
+        android:background="@drawable/shape"
+        android:hint="  Password"
+        android:drawableLeft="@drawable/password"
+        android:paddingLeft="5dp"
         android:textSize="22sp"
         android:inputType="textPassword"
         android:textColor="#99131313"
@@ -63,9 +67,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/shape"
         android:text="Log In"
-        android:textColor="#131313"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="#293241"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,10 +81,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/motionpicture"
-        android:text="Bilde"
-        android:textColor="#131313"
-        android:textSize="100sp"
+        android:fontFamily="@font/val"
+        android:text="Sign In"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -93,7 +100,7 @@
         android:layout_marginTop="16dp"
         android:background="?attr/selectableItemBackground"
         android:text="Forgot Password?"
-        android:textColor="#131313"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
@@ -107,7 +114,7 @@
         android:layout_marginBottom="28dp"
         android:text="Don't have an account?"
         android:textAlignment="center"
-        android:textColor="#131313"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +129,7 @@
         android:background="?attr/selectableItemBackground"
         android:text="Sign Up"
         android:textAlignment="center"
-        android:textColor="#131313"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,5 +1,6 @@
 package com.example.exam.Fragments
 
+import android.app.DatePickerDialog
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.View
@@ -25,14 +26,17 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
     private lateinit var registrationPasswordRepeat: EditText
     private lateinit var termsOfServiceCheckBox: CheckBox
     private lateinit var termsOfService: TextView
+    private lateinit var ageText: TextView
     private val auth = FirebaseAuth.getInstance()
     private val dbUserInfo: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsernameReadd")
+    private val dbUserInfo2: DatabaseReference = FirebaseDatabase.getInstance().getReference("anzori")
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
         registration()
+        saveaAge()
 
 
         termsOfService.setOnClickListener(object : View.OnClickListener {
@@ -43,35 +47,13 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
         })
     }
 
-//    private fun saveUserInfo(usernameReadd: String, mailInput: String) {
-//        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
-//        val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
-//
-//        val userMap = HashMap<String, Any>()
-//        userMap["uid"] = currentUserID
-//        userMap["usernameRead"] = usernameReadd
-//        userMap["mailInput"] = mailInput
-//        userMap["image"] = "theapk-4cf05-default-rtdb"
-//
-//        usersRef.child(currentUserID).setValue(userMap)
-//            .addOnCompleteListener{task ->
-//                if (task.isSuccessful){
-//                    Toast.makeText(getActivity(), "Big Success ", Toast.LENGTH_SHORT)
-//                }
-//                else{
-//                    Toast.makeText(getActivity(), "Fail ", Toast.LENGTH_SHORT)
-//                }
-//
-//            }
-//
-//
-//    }
     private fun registration(){
         registrationButton.setOnClickListener {
             var mailInput = registrationEmailAddress.text.toString()
             var passwordInput = registrationPassword.text.toString()
             var confirmPasswordInput = registrationPasswordRepeat.text.toString()
             var usernameReadd = username.text.toString()
+            var ageText = ageText.text.toString()
 
 
             val controller = Navigation.findNavController(requireView())
@@ -94,7 +76,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .createUserWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
-                            val userInfo = UserInfo(usernameReadd)
+                            val userInfo = UserInfo(usernameReadd,"",ageText)
                             dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
                             val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
@@ -105,7 +87,31 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     }
         }
     }
+    private fun saveaAge(){
+        ageText.setOnClickListener{
 
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+            val ragac = Calendar.getInstance().get(Calendar.YEAR)
+
+            val dpt = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->
+                val age = (ragac - mYear).toString()
+                if (age.toInt() < 18){
+                    Toast.makeText(requireActivity(), "you must be older than 18", Toast.LENGTH_SHORT).show()
+                    registrationButton.isClickable = false
+                }
+                else{
+                    registrationButton.isClickable = true
+                    val userInfo2 = UserInfo(age)
+                    dbUserInfo2.child(auth.currentUser?.uid!!).setValue(userInfo2)
+                }
+                ageText.setText("$mDay" + "/" + "$mMonth" + "/" + "$mYear")
+            },year,month,day)
+            dpt.show()
+        }
+    }
 
     private fun init(){
         registrationEmailAddress = requireView().findViewById(R.id.registrationEmailAddress)
@@ -115,5 +121,6 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
         registrationPasswordRepeat = requireView().findViewById(R.id.registrationPasswordRepeat)
         termsOfServiceCheckBox = requireView().findViewById(R.id.termsOfServiceCheckBox)
         termsOfService = requireView().findViewById(R.id.termsOfService)
+        ageText = requireView().findViewById(R.id.ageText)
     }
 }

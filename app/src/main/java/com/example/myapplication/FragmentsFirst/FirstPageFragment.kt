@@ -14,7 +14,6 @@ import android.graphics.Typeface
 class FirstPageFragment: Fragment(R.layout.fragment_firstpage){
     private lateinit var transferToRegScreenButton: TextView
     private lateinit var transferToAuthScreenButton: TextView
-    private lateinit var logo: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +43,5 @@ class FirstPageFragment: Fragment(R.layout.fragment_firstpage){
     private fun init(){
         transferToRegScreenButton = requireView().findViewById(R.id.transferToRegScreenButton)
         transferToAuthScreenButton = requireView().findViewById(R.id.transferToAuthScreenButton)
-        logo = requireView().findViewById(R.id.logo)
     }
 }

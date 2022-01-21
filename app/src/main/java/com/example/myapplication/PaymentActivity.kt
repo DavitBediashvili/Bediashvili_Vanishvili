@@ -1,14 +1,18 @@
 package com.example.myapplication
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
 import android.content.Intent
 import android.os.Handler
 import android.widget.*
 import androidx.appcompat.app.ActionBar
+import com.google.android.gms.common.internal.Objects
+import com.google.common.base.MoreObjects
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import org.w3c.dom.Text
+import java.util.*
 
 
 class PaymentActivity: AppCompatActivity() {
@@ -27,9 +31,15 @@ class PaymentActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
+
         val actionBar: ActionBar? = supportActionBar
         actionBar?.hide()
         init()
+
+
+
+
+
 
         submitButtonP.setOnClickListener{
             var cardnumber = CarNumberEditText.text.toString()
@@ -76,6 +86,8 @@ class PaymentActivity: AppCompatActivity() {
             finish()
         }
     }
+
+
     fun init() {
         CarNumberEditText = findViewById(R.id.CarNumberEditText)
         MonthEditText = findViewById(R.id.MonthEditText)

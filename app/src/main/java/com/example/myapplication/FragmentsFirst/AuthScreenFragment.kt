@@ -27,7 +27,7 @@ import com.google.firebase.ktx.Firebase
 class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var editTextEmailAddress: EditText
     private lateinit var editTextPassword: EditText
-    private lateinit var username_text: EditText
+//    private lateinit var username_text: EditText
     private lateinit var authorizationButton: Button
     private lateinit var passwordReset: TextView
     private lateinit var fromAuthScreenToRegScreen: TextView
@@ -63,23 +63,22 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         authorizationButton.setOnClickListener {
             var mailInput = editTextEmailAddress.text.toString()
             var passwordInput = editTextPassword.text.toString()
-            val usernameInput = username_text.text.toString()
+//            val usernameInput = username_text.text.toString()
 
             if (mailInput.isEmpty() || mailInput.length < 8 || !mailInput.contains("@")) {
                 editTextEmailAddress.error = "Please write correct mail"
             } else if (passwordInput.isEmpty() || (passwordInput.length <= 9) || !(passwordInput.matches(".*[0-9].*".toRegex())) || !(passwordInput.matches(".*[a-z].*".toRegex()))) {
                 editTextPassword.error = "Password should contain more than 8 symbols and numbers"
-            } else if (usernameInput.isEmpty() || usernameInput.length<2){
-                username_text.error = "Invalid username"
             }
+//            } else if (usernameInput.isEmpty() || usernameInput.length<2){
+//                username_text.error = "Invalid username"
+//            }
             else
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(getActivity(), "Authorization Complete", Toast.LENGTH_SHORT).show()
-                            val userInfo = UserInfo(usernameInput)
-                            dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
                             val intent = Intent(activity, MainActivity2::class.java)
                             startActivity(intent)
                             requireActivity().finish()
@@ -99,7 +98,7 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
         editTextPassword = requireView().findViewById(R.id.editTextPassword)
         authorizationButton = requireView().findViewById(R.id.authorizationButton)
         passwordReset = requireView().findViewById(R.id.passwordReset)
-        username_text = requireView().findViewById(R.id.username_text)
+//        username_text = requireView().findViewById(R.id.username_text)
         fromAuthScreenToRegScreen = requireView().findViewById(R.id.fromAuthScreenToRegScreen)
         val userInfo = UserInfo(usernameRead = "")
     }
