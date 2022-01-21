@@ -31,8 +31,6 @@ class AuthScreenFragment: Fragment (R.layout.fragment_authscreen) {
     private lateinit var authorizationButton: Button
     private lateinit var passwordReset: TextView
     private lateinit var fromAuthScreenToRegScreen: TextView
-    private val auth = FirebaseAuth.getInstance()
-    private val dbUserInfo: DatabaseReference = FirebaseDatabase.getInstance().getReference("UsernameReadd")
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

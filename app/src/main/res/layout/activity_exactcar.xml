@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExactCarActivity"
-    android:background="@drawable/gray">
+    android:background="#293241">
 
 
     <LinearLayout
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
+        android:background="@drawable/shape2"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
@@ -33,125 +34,123 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/CarNameActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="63dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/CarImageView"
-            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Layout2"
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/shape2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ImageView
             android:id="@+id/CarImageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars">
 
+        </ImageView>
 
         <TextView
             android:id="@+id/CarNameActivity2"
-            android:layout_width="wrap_content"
+            android:layout_width="247dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="110dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="5dp"
             android:text="TextView"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
-
-            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/CarImageView2"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
 
         <TextView
             android:id="@+id/CarInfoSedanTextView"
-            android:layout_width="245dp"
+            android:layout_width="247dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="48dp"
             android:text="TextView"
             android:textAlignment="center"
-            android:textSize="17sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CarNameActivity2" />
+            app:layout_constraintStart_toEndOf="@+id/CarImageView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Layout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
+        android:layout_height="200dp"
+        android:layout_marginTop="46dp"
+        android:background="@drawable/shape2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Layout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <ImageView
             android:id="@+id/CarImageView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars">
+
+        </ImageView>
 
         <TextView
             android:id="@+id/CarNameActivity3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="110dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="5dp"
             android:text="TextView"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/CarImageView3"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
 
         <TextView
             android:id="@+id/CarInfoSUVTextView"
-            android:layout_width="245dp"
+            android:layout_width="247dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="48dp"
             android:text="TextView"
             android:textAlignment="center"
-            android:textSize="17sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CarNameActivity3" />
-
+            app:layout_constraintStart_toEndOf="@+id/CarImageView3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

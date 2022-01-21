@@ -33,7 +33,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             R.drawable.audi,
             R.drawable.bmw,
             R.drawable.mustang,
-            R.drawable.toyota
+            R.drawable.maserati
 
         )
 
@@ -42,7 +42,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "Audi",
             "BMW",
             "Mustang",
-            "Toyota"
+            "Maserati"
         )
 
         exactCarSedan = arrayOf(
@@ -50,17 +50,17 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "Audi A5",
             "BMW 330i",
             "Ford Mustang S550",
-            "Toyota Camry"
+            "Maserati GranTurismo V8"
 
 
         )
 
         exactCarSedanImage = arrayOf(
             R.drawable.volkswagen_jetta,
-            R.drawable.audi_a,
+            R.drawable.audi_a_new,
             R.drawable.bmw_i,
             R.drawable.ford_mustang_s,
-            R.drawable.toyota_camry
+            R.drawable.maserati_new_sedan
 
         )
 
@@ -69,7 +69,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "Audi Q5",
             "BMW X5",
             "Ford Mustang Mach-E",
-            "Toyota RAV4"
+            "Maserati Levante"
         )
 
         exactCarSUVImage = arrayOf(
@@ -77,8 +77,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             R.drawable.audi_q,
             R.drawable.bmw_x,
             R.drawable.ford_mustang_mach,
-            R.drawable.toyota_rav
-
+            R.drawable.maserati_suv
         )
 
         exactCarSedanPrice = arrayOf(
@@ -86,7 +85,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "From 59 € for 3 hours\n(Additional kilometer (>200 km)  €0.42/km)",
             "From 49 € for 3 hours\n(Additional kilometer (>200 km)  €0.32/km)",
             "From 59 € for 3 hours\n(Additional kilometer (>200 km)  €0.42/km)",
-            "From 56 € for 3 hours\n(Additional kilometer (>200 km)  €0.36/km)"
+            "From 80 € for 3 hours\n(Additional kilometer (>200 km)  €0.64/km)"
         )
 
         exactCarSUVPrice = arrayOf(
@@ -94,7 +93,7 @@ class CarLogoFragment: Fragment(R.layout.fragment_carlogo) {
             "From 65 €,for 3 hours\n(Additional kilometer (>200 km)  €0.51/km)",
             "From 60 €,for 3 hours\n(Additional kilometer (>200 km)  €0.45/km)",
             "From 57 €,for 3 hours\n(Additional kilometer (>200 km)  €0.36/km)",
-            "From 63 €,for 3 hours\n(Additional kilometer (>200 km)  €0.47/km)"
+            "From 79 €,for 3 hours\n(Additional kilometer (>200 km)  €0.59/km)"
         )
 
         recyclerView = view.findViewById(R.id.recyclerViewCar)

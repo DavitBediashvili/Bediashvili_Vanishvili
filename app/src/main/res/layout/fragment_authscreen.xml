@@ -137,4 +137,12 @@
         app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toEndOf="@+id/textView2" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

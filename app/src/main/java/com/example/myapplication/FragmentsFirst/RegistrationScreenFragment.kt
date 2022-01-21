@@ -38,6 +38,8 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
         registration()
         saveaAge()
 
+        var regActivity : LinearLayout = view.findViewById(R.id.linear1)
+
 
         termsOfService.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
@@ -76,9 +78,11 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     .createUserWithEmailAndPassword(mailInput, passwordInput)
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
-                            val userInfo = UserInfo(usernameReadd,"",ageText)
+                            val userInfo = UserInfo(usernameReadd,"", ageText, mailInput)
                             dbUserInfo.child(auth.currentUser?.uid!!).setValue(userInfo)
+
                             Toast.makeText(getActivity(), "Registration Complete", Toast.LENGTH_SHORT).show()
+
                             val action = RegistrationScreenFragmentDirections.actionRegistrationscreenFragmentToFirstpageFragment()
                             controller.navigate(action)
                         }
@@ -107,7 +111,7 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
                     val userInfo2 = UserInfo(age)
                     dbUserInfo2.child(auth.currentUser?.uid!!).setValue(userInfo2)
                 }
-                ageText.setText("$mDay" + "/" + "$mMonth" + "/" + "$mYear")
+                ageText.setText("$mDay" + "/" + (("$mMonth").toInt() + 1) + "/" + "$mYear")
             },year,month,day)
             dpt.show()
         }

@@ -4,10 +4,12 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.graphics.Color
 import android.os.Handler
 import android.widget.*
 import androidx.appcompat.app.ActionBar
 import com.google.android.gms.common.internal.Objects
+import com.google.android.material.snackbar.Snackbar
 import com.google.common.base.MoreObjects
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -36,6 +38,8 @@ class PaymentActivity: AppCompatActivity() {
         actionBar?.hide()
         init()
 
+        var paymentActivity : LinearLayout = findViewById(R.id.linear)
+
 
 
 
@@ -53,7 +57,7 @@ class PaymentActivity: AppCompatActivity() {
             if (cardnumber.isEmpty() || cardnumber.length != 16 || !cardnumber.matches(".*[0-9].*".toRegex())) {
                 CarNumberEditText.error = "Please write correct cardnumber"
             }
-            else if (month.isEmpty() || month.length != 2 || !month.matches(".*[0-9].*".toRegex()) || !(month.toInt() < 13)){
+            else if (month.isEmpty() || !month.matches(".*[0-9].*".toRegex()) || !(month.toInt() < 13)){
                 MonthEditText.error = "Please write correct month"
             }
             else if (year.isEmpty() || year.length != 4 || !year.matches(".*[0-9].*".toRegex())){
@@ -64,7 +68,10 @@ class PaymentActivity: AppCompatActivity() {
             }
             else{
 
-                Toast.makeText(this,"$carName will be delivered soon",Toast.LENGTH_SHORT).show()
+                val customSnackbar = Snackbar.make(paymentActivity,"$carName will arrive soon", Snackbar.LENGTH_LONG)
+                customSnackbar.setBackgroundTint(Color.GREEN)
+                customSnackbar.setActionTextColor(Color.WHITE)
+                customSnackbar.show()
 
 
                 val userInfo = UserInfo(history = "$carName")

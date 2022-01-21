@@ -11,7 +11,6 @@ class ExactCarActivity : AppCompatActivity() {
     private lateinit var CarImageViewActivity: ImageView
     private lateinit var CarImageView2: ImageView
     private lateinit var CarImageView3: ImageView
-    private lateinit var CarNameActivity: TextView
     private lateinit var CarNameActivity2: TextView
     private lateinit var CarNameActivity3: TextView
     private lateinit var CarInfoSedanTextView: TextView
@@ -62,7 +61,6 @@ class ExactCarActivity : AppCompatActivity() {
 
 
 
-        CarNameActivity.text = name
         CarNameActivity2.text = exactCarSedan
         CarNameActivity3.text = exactCarSUV
         CarInfoSedanTextView.text = exactCarSedanPrice
@@ -77,7 +75,6 @@ class ExactCarActivity : AppCompatActivity() {
         CarImageViewActivity = findViewById(R.id.CarImageViewActivity)
         CarImageView2 = findViewById(R.id.CarImageView2)
         CarImageView3 = findViewById(R.id.CarImageView3)
-        CarNameActivity = findViewById(R.id.CarNameActivity)
         CarNameActivity2 = findViewById(R.id.CarNameActivity2)
         CarNameActivity3 = findViewById(R.id.CarNameActivity3)
         CarInfoSedanTextView = findViewById(R.id.CarInfoSedanTextView)

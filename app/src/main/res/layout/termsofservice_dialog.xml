@@ -3,14 +3,13 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/gray_dialog"
-    android:clipToOutline="true">
+    android:background="@drawable/shape2">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Terms Of Service"
-        android:textColor="#131313"
+        android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold">
     </TextView>
@@ -20,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:textAlignment="center"
-        android:text="Don't post stupid photos and rate this app with 5 stars"
-        android:textColor="#131313"
+        android:text="rate this app with 5 stars"
+        android:textColor="#FFFFFF"
         android:textSize="18sp">
     </TextView>
 
@@ -32,10 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="submit"
-        android:textColor="#99FFFFFF"
-        android:textColorHint="#99FFFFFF"
-        android:background="#20131313"
-        android:backgroundTint="#131313">
+        android:textColor="#293241"
+        android:background="@drawable/shape">
 
     </Button>
 
