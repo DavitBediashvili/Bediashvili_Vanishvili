@@ -101,16 +101,16 @@ class RegistrationScreenFragment: Fragment(R.layout.fragment_registrationscreen)
             val ragac = Calendar.getInstance().get(Calendar.YEAR)
 
             val dpt = DatePickerDialog(requireActivity(), DatePickerDialog.OnDateSetListener{ view, mYear, mMonth, mDay->
-                val age = (ragac - mYear).toString()
-                if (age.toInt() < 18){
-                    Toast.makeText(requireActivity(), "you must be older than 18", Toast.LENGTH_SHORT).show()
-                    registrationButton.isClickable = false
-                }
-                else{
-                    registrationButton.isClickable = true
-                    val userInfo2 = UserInfo(age)
-                    dbUserInfo2.child(auth.currentUser?.uid!!).setValue(userInfo2)
-                }
+//                val age = (ragac - mYear).toString()
+//              if (age.toInt() < 18){
+//                    Toast.makeText(requireActivity(), "you must be older than 18", Toast.LENGTH_SHORT).show()
+//                    registrationButton.isClickable = false
+//                }
+//               else{
+//                    registrationButton.isClickable = true
+//                    val userInfo2 = UserInfo(age)
+//                    dbUserInfo2.child(auth.currentUser?.uid!!).setValue(userInfo2)
+//                }
                 ageText.setText("$mDay" + "/" + (("$mMonth").toInt() + 1) + "/" + "$mYear")
             },year,month,day)
             dpt.show()
